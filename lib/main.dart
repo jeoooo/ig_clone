@@ -11,6 +11,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // debugShowMaterialGrid: true,
+
+      // uncomment to remove that top-right banner :D
+      // debugShowCheckedModeBanner: false,
       title: 'Instagram clone frontend using Flutter',
       initialRoute: '/',
       routes: {
