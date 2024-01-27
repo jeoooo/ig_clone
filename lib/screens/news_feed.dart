@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ig_clone/screens/widgets/stories_bubble.dart';
+import 'package:ig_clone/screens/widgets/top_appbar.dart';
 import 'package:ig_clone/screens/widgets/user_posts.dart';
 
 class newsFeed extends StatelessWidget {
@@ -14,17 +15,23 @@ class newsFeed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: people.length,
-              itemBuilder: (context, index) {
-                return UserPosts(text: people[index]);
-              }),
-        )
-      ],
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: topAppbar(),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: people.length,
+                itemBuilder: (context, index) {
+                  return UserPosts(text: people[index]);
+                }),
+          )
+        ],
+      ),
     );
   }
 }

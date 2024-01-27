@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 
 class UserPosts extends StatefulWidget {
-  const UserPosts({Key? key, required text}) : super(key: key);
+  final String text;
+  const UserPosts({Key? key, required this.text}) : super(key: key);
 
   @override
   _UserPostsState createState() => _UserPostsState();
@@ -25,12 +26,12 @@ class _UserPostsState extends State<UserPosts> {
                     width: 40,
                     height: 40,
                     decoration: BoxDecoration(
-                        color: Colors.blueGrey, shape: BoxShape.circle),
+                        color: Colors.blueGrey[200], shape: BoxShape.circle),
                   ),
                   SizedBox(
                     width: 10,
                   ),
-                  Text('data'),
+                  Text(widget.text),
                 ],
               ),
               Icon(Icons.more_vert)
@@ -39,7 +40,7 @@ class _UserPostsState extends State<UserPosts> {
         ),
         Container(
           height: 400,
-          color: Colors.grey,
+          color: Colors.grey[300],
         ),
         Padding(
           padding: const EdgeInsets.all(12.0),
@@ -72,7 +73,7 @@ class _UserPostsState extends State<UserPosts> {
                   TextSpan(
                       text: 'Liked by ', style: TextStyle(color: Colors.black)),
                   TextSpan(
-                      text: 'jeoooo',
+                      text: widget.text,
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold)),
                   TextSpan(
@@ -87,7 +88,7 @@ class _UserPostsState extends State<UserPosts> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 12.0, top: 6.0),
+          padding: const EdgeInsets.only(left: 12.0, top: 6.0, bottom: 24.0),
           child: Row(
             children: [
               Expanded(
@@ -96,7 +97,7 @@ class _UserPostsState extends State<UserPosts> {
                       style: TextStyle(color: Colors.black),
                       children: [
                         TextSpan(
-                            text: 'jeoooo ',
+                            text: '${widget.text} ',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         TextSpan(
                           text:
