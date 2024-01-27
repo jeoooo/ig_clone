@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ig_clone/screens/widgets/bottom_navbar.dart';
+import 'package:ig_clone/screens/widgets/user_posts.dart';
 
 import 'widgets/stories_bubble.dart';
 import 'widgets/top_appbar.dart';
@@ -33,100 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           storiesBar(people: people),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                          color: Colors.blueGrey, shape: BoxShape.circle),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('data'),
-                  ],
-                ),
-                Icon(Icons.more_vert)
-              ],
-            ),
-          ),
-          Container(
-            height: 400,
-            color: Colors.grey,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.favorite),
-                    SizedBox(
-                      width: 14,
-                    ),
-                    Icon(Icons.message),
-                    SizedBox(
-                      width: 14,
-                    ),
-                    Icon(Icons.share),
-                  ],
-                ),
-                Icon(Icons.bookmark),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0),
-            child: Row(
-              children: [
-                RichText(
-                  text: TextSpan(children: [
-                    TextSpan(
-                        text: 'Liked by ',
-                        style: TextStyle(color: Colors.black)),
-                    TextSpan(
-                        text: 'jeoooo',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold)),
-                    TextSpan(
-                        text: ' and ', style: TextStyle(color: Colors.black)),
-                    TextSpan(
-                        text: 'others',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold)),
-                  ]),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0, top: 6.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: RichText(
-                    text: TextSpan(
-                        style: TextStyle(color: Colors.black),
-                        children: [
-                          TextSpan(
-                              text: 'jeoooo ',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          TextSpan(
-                            text:
-                                'Finding a good Instagram caption is a challenge.',
-                          ),
-                        ]),
-                  ),
-                ),
-              ],
-            ),
+          Expanded(
+            child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: people.length,
+                itemBuilder: (context, index) {
+                  return UserPosts(text: people[index]);
+                }),
           )
         ],
       ),
