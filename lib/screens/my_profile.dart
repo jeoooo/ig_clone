@@ -8,11 +8,20 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Icon(Icons.arrow_back),
+            SizedBox(width: 20),
+            Text('jeooo', style: TextStyle(fontWeight: FontWeight.bold))
+          ],
+        ),
+      ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
                 height: 100,
@@ -37,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        '69420',
+                        '9,420',
                         style: TextStyle(
                             fontSize: 24, fontWeight: FontWeight.bold),
                       ),
@@ -59,6 +68,75 @@ class ProfileScreen extends StatelessWidget {
               ),
             ],
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('jeooo',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text('Software Developer | Graphic Designer'),
+                    Row(
+                      children: [
+                        Icon(Icons.link, color: Colors.blue[800]),
+                        SizedBox(width: 4.0),
+                        Text(
+                          'https://jeoooo.github.io/portfolio',
+                          style: TextStyle(color: Colors.blue[800]),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FilledButton(
+                    style: FilledButton.styleFrom(
+                        fixedSize: Size.fromWidth(150),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                        backgroundColor: Colors.blue[600]),
+                    onPressed: () {
+                      //button functionality
+                    },
+                    child: Text('Edit Profile')),
+                SizedBox(width: 4.0),
+                FilledButton(
+                    style: FilledButton.styleFrom(
+                        fixedSize: Size.fromWidth(180),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                        backgroundColor: Colors.blue[600]),
+                    onPressed: () {
+                      //button functionality
+                    },
+                    child: Text('Share Profile')),
+                IconButton(
+                    style: FilledButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                        backgroundColor: Colors.blue[600]),
+                    color: Colors.white,
+                    onPressed: () {
+                      //button functionality
+                    },
+                    icon: Icon(Icons.person_add)),
+              ],
+            ),
+          )
         ],
       ),
     );
