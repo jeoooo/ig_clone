@@ -23,7 +23,7 @@ class storiesBubble extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Text('adsad'),
+          Text(text),
         ],
       ),
     );

@@ -32,18 +32,100 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
+          storiesBar(people: people),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blueGrey, shape: BoxShape.circle),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text('data'),
+                  ],
+                ),
+                Icon(Icons.more_vert)
+              ],
+            ),
+          ),
           Container(
-            height: 130,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: people.length,
-                itemBuilder: (context, index) {
-                  return storiesBubble(text: people[index]);
-                }),
-          )
+            height: 400,
+            color: Colors.grey,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.favorite),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Icon(Icons.message),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Icon(Icons.share),
+                  ],
+                ),
+                Icon(Icons.bookmark),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 12.0),
+            child: Row(
+              children: [
+                Text('Liked by '),
+                Text('jeooo', style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(' and'),
+                Text(' others', style: TextStyle(fontWeight: FontWeight.bold)),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 12.0, top: 4.0),
+            child: Row(
+              children: [
+                Text('jeooo', style: TextStyle(fontWeight: FontWeight.bold)),
+              ],
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: bottomNavbar(),
+    );
+  }
+}
+
+class storiesBar extends StatelessWidget {
+  const storiesBar({
+    super.key,
+    required this.people,
+  });
+
+  final List people;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 130,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: people.length,
+          itemBuilder: (context, index) {
+            return storiesBubble(text: people[index]);
+          }),
     );
   }
 }
