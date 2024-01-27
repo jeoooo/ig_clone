@@ -86,21 +86,48 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(left: 12.0),
             child: Row(
               children: [
-                Text('Liked by '),
-                Text('jeooo', style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(' and'),
-                Text(' others', style: TextStyle(fontWeight: FontWeight.bold)),
+                RichText(
+                  text: TextSpan(children: [
+                    TextSpan(
+                        text: 'Liked by ',
+                        style: TextStyle(color: Colors.black)),
+                    TextSpan(
+                        text: 'jeoooo',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold)),
+                    TextSpan(
+                        text: ' and ', style: TextStyle(color: Colors.black)),
+                    TextSpan(
+                        text: 'others',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold)),
+                  ]),
+                ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 12.0, top: 4.0),
+            padding: const EdgeInsets.only(left: 12.0, top: 6.0),
             child: Row(
               children: [
-                Text('jeooo', style: TextStyle(fontWeight: FontWeight.bold)),
+                Expanded(
+                  child: RichText(
+                    text: TextSpan(
+                        style: TextStyle(color: Colors.black),
+                        children: [
+                          TextSpan(
+                              text: 'jeoooo ',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          TextSpan(
+                            text:
+                                'Finding a good Instagram caption is a challenge.',
+                          ),
+                        ]),
+                  ),
+                ),
               ],
             ),
-          ),
+          )
         ],
       ),
       bottomNavigationBar: bottomNavbar(),
