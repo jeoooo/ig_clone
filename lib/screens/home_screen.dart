@@ -6,8 +6,6 @@ import 'package:ig_clone/screens/search_feed.dart';
 
 import 'news_feed.dart';
 
-import 'widgets/top_appbar.dart';
-
 final List people = [
   'kobe',
   'juan',

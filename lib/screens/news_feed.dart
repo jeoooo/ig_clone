@@ -22,6 +22,7 @@ class newsFeed extends StatelessWidget {
       ),
       body: Column(
         children: [
+          storiesBar(people: people),
           Expanded(
             child: ListView.builder(
                 scrollDirection: Axis.vertical,
