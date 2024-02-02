@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ig_clone/screens/my_profile.dart';
+import 'package:ig_clone/screens/reels_feed.dart';
 import 'package:ig_clone/screens/search_feed.dart';
 
 import 'news_feed.dart';
@@ -34,8 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final List _children = [
     newsFeed(people: people),
     SearchFeed(),
-    Center(child: Text('reels')),
-    Center(child: Text('shop')),
+    Center(child: Text('camera')),
+    ReelsFeed(),
     ProfileScreen()
   ];
   @override
