@@ -1,10 +1,9 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers, prefer_const_constructors, prefer_typing_uninitialized_variables, camel_case_types
-
 import 'package:flutter/material.dart';
 
 class storiesBubble extends StatelessWidget {
   final text;
-  const storiesBubble({super.key, this.text});
+  final String imageUrl;
+  const storiesBubble({super.key, this.text, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +12,27 @@ class storiesBubble extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
+            width: 70,
+            height: 70,
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.blueGrey[400],
+              gradient: LinearGradient(
+                colors: [Colors.red, Colors.orange, Colors.yellow],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(
+                  3.0), // Space between the ring and the avatar
+              child: CircleAvatar(
+                radius: 30, // Half of the width and height
+                backgroundColor: Colors.blueGrey[400],
+                backgroundImage: NetworkImage(imageUrl),
+              ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(text),

@@ -1,5 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers, prefer_const_constructors, sized_box_for_whitespace, camel_case_types
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:ig_clone/screens/widgets/stories_bubble.dart';
 import 'package:ig_clone/screens/widgets/top_appbar.dart';
@@ -15,6 +17,7 @@ class newsFeed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int randomHeight = 200 + Random().nextInt(201);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
@@ -28,7 +31,9 @@ class newsFeed extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 itemCount: people.length,
                 itemBuilder: (context, index) {
-                  return UserPosts(text: people[index]);
+                  return UserPosts(
+                      text: people[index],
+                      imageUrl: 'https://picsum.photos/$randomHeight');
                 }),
           )
         ],
@@ -53,7 +58,10 @@ class storiesBar extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: people.length,
           itemBuilder: (context, index) {
-            return storiesBubble(text: people[index]);
+            return storiesBubble(
+              text: people[index],
+              imageUrl: 'https://picsum.photos/300',
+            );
           }),
     );
   }

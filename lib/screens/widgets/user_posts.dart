@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class UserPosts extends StatefulWidget {
   final String text;
-  const UserPosts({Key? key, required this.text}) : super(key: key);
+  final String imageUrl;
+  const UserPosts({Key? key, required this.text, required this.imageUrl})
+      : super(key: key);
 
   @override
   _UserPostsState createState() => _UserPostsState();
@@ -40,7 +42,8 @@ class _UserPostsState extends State<UserPosts> {
         ),
         Container(
           height: 400,
-          color: Colors.grey[300],
+          color: Colors.black87,
+          child: Image.network(widget.imageUrl),
         ),
         Padding(
           padding: const EdgeInsets.all(12.0),
